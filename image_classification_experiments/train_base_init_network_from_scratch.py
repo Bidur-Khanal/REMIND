@@ -14,8 +14,9 @@ import torch.utils.data
 import torch.utils.data.distributed
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
-from image_classification_experiments.resnet_models import *
+from resnet_models import *
 import time
+from center_loss import CenterLoss
 
 parser = argparse.ArgumentParser(description='PyTorch ImageNet Training')
 parser.add_argument('--data', metavar='DIR', help='path to dataset')
@@ -23,8 +24,10 @@ parser.add_argument('-a', '--arch', metavar='ARCH', default='ResNet18ClassifyAft
 parser.add_argument('--ckpt_file', type=str, default='ResNet18ClassifyAfterLayer4_1')
 parser.add_argument('--save_dir', type=str, default='resnet_imagenet_ckpts')
 parser.add_argument('--base_max_class', type=int, default=100)
-parser.add_argument('--labels_dir', type=str, default='imagenet_indices')
-
+parser.add_argument('--alpha', type=float, default=1.0)
+parser.add_argument('--labels_dir', type=str, default='imagenet_files')
+parser.add_argument('--center_loss',action='store_true',
+                    help='Use the center loss')
 parser.add_argument('-j', '--workers', default=8, type=int, metavar='N',
                     help='number of data loading workers (default: 4)')
 parser.add_argument('--epochs', default=40, type=int, metavar='N',
@@ -66,11 +69,14 @@ parser.add_argument('--multiprocessing-distributed', action='store_true',
                          'N processes per node, which has N GPUs. This is the '
                          'fastest way to use PyTorch for either single node or '
                          'multi node data parallel training')
+                        
 best_acc1 = 0
+
 
 
 def main():
     args = parser.parse_args()
+    args.gpu = None
     print(vars(args))
     if not os.path.exists(args.save_dir):
         os.makedirs(args.save_dir)
@@ -91,6 +97,7 @@ def main():
 
     if args.dist_url == "env://" and args.world_size == -1:
         args.world_size = int(os.environ["WORLD_SIZE"])
+        print ("***********",args.world_size)
 
     args.distributed = args.world_size > 1 or args.multiprocessing_distributed
 
@@ -110,7 +117,7 @@ def main():
 def main_worker(gpu, ngpus_per_node, args):
     global best_acc1
     args.gpu = gpu
-
+    lr = 0.5  ##learning-rate used for the center loss
     if args.gpu is not None:
         print("Use GPU: {} for training".format(args.gpu))
 
@@ -156,11 +163,24 @@ def main_worker(gpu, ngpus_per_node, args):
 
     # define loss function (criterion) and optimizer
     criterion = nn.CrossEntropyLoss().cuda(args.gpu)
+    ## center loss is given in the argument
+    
+    if args.center_loss:
+        center_loss = CenterLoss(num_classes = args.base_max_class, feat_dim =512, use_gpu = True )
+        optimizer = torch.optim.SGD(model.parameters(), args.lr,
+                                    momentum=args.momentum,
+                                    weight_decay=args.weight_decay)
 
-    optimizer = torch.optim.SGD(model.parameters(), args.lr,
-                                momentum=args.momentum,
-                                weight_decay=args.weight_decay)
+        optimizer_centloss = torch.optim.SGD(center_loss.parameters(), lr=lr)
 
+    else:
+        center_loss = None
+        optimizer = torch.optim.SGD(model.parameters(), args.lr,
+                                    momentum=args.momentum,
+                                    weight_decay=args.weight_decay)
+        optimizer_centloss = None
+
+    
     # optionally resume from a checkpoint
     if args.resume:
         if os.path.isfile(args.resume):
@@ -217,8 +237,9 @@ def main_worker(gpu, ngpus_per_node, args):
     val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=args.batch_size, num_workers=args.workers,
                                              pin_memory=True, sampler=val_sampler)
 
+
     if args.evaluate:
-        validate(val_loader, model, criterion, args)
+        validate(val_loader, model, criterion,  args,center_loss = center_loss)
         return
 
     print('\nstarting training...')
@@ -226,12 +247,14 @@ def main_worker(gpu, ngpus_per_node, args):
         if args.distributed:
             train_sampler.set_epoch(epoch)
         adjust_learning_rate(optimizer, epoch, args)
+        if args.center_loss:
+            adjust_learning_rate_centloss(optimizer_centloss, epoch, lr)
 
         # train for one epoch
-        train(train_loader, model, criterion, optimizer, epoch, args)
+        train(train_loader, model, criterion,  optimizer, epoch, args,center_loss = center_loss , optimizer_centloss = optimizer_centloss)
 
         # evaluate on validation set
-        acc1 = validate(val_loader, model, criterion, args)
+        acc1 = validate(val_loader, model, criterion, args, center_loss = center_loss)
 
         # remember best acc@1 and save checkpoint
         is_best = acc1 > best_acc1
@@ -252,7 +275,7 @@ def main_worker(gpu, ngpus_per_node, args):
                f='./' + ckpt_path + '/{}'.format(args.ckpt_file))
 
 
-def train(train_loader, model, criterion, optimizer, epoch, args):
+def train(train_loader, model, criterion, optimizer, epoch, args, center_loss = None, optimizer_centloss = None):
     batch_time = AverageMeter()
     data_time = AverageMeter()
     losses = AverageMeter()
@@ -272,16 +295,14 @@ def train(train_loader, model, criterion, optimizer, epoch, args):
             input = input.cuda(args.gpu, non_blocking=True)
         target = target.cuda(args.gpu, non_blocking=True)
 
-        # compute output
-        if 'Auxiliary' in args.arch:
-            main_out, aux_out = model(input)
-            main_loss = criterion(main_out, target)
-            aux_loss = criterion(aux_out, target)
-            loss = main_loss + args.auxiliary_weight * aux_loss
-            output = main_out
+       
+        if center_loss is not None:
+            output, ft = model(input)
+            loss = criterion(output, target) + args.alpha*center_loss(ft, target)
         else:
-            output = model(input)
+            output,ft= model(input)
             loss = criterion(output, target)
+
 
         # measure accuracy and record loss
         acc1, acc5 = accuracy(output, target, topk=(1, 5))
@@ -291,7 +312,13 @@ def train(train_loader, model, criterion, optimizer, epoch, args):
 
         # compute gradient and do SGD step
         optimizer.zero_grad()
+        if optimizer_centloss is not None:
+            optimizer_centloss.zero_grad()
         loss.backward()
+        if (center_loss is not None) and (optimizer_centloss is not None):
+            for param in center_loss.parameters():
+                param.grad.data *= (1./args.alpha)
+            optimizer_centloss.step()
         optimizer.step()
 
         # measure elapsed time
@@ -309,7 +336,7 @@ def train(train_loader, model, criterion, optimizer, epoch, args):
                 data_time=data_time, loss=losses, top1=top1, top5=top5))
 
 
-def validate(val_loader, model, criterion, args):
+def validate(val_loader, model, criterion, args, center_loss = None):
     batch_time = AverageMeter()
     losses = AverageMeter()
     top1 = AverageMeter()
@@ -325,15 +352,11 @@ def validate(val_loader, model, criterion, args):
                 input = input.cuda(args.gpu, non_blocking=True)
             target = target.cuda(args.gpu, non_blocking=True)
 
-            # compute output
-            if 'Auxiliary' in args.arch:
-                main_out, aux_out = model(input)
-                main_loss = criterion(main_out, target)
-                aux_loss = criterion(aux_out, target)
-                loss = main_loss + args.auxiliary_weight * aux_loss
-                output = main_out
+            if center_loss is not None:
+                output, ft = model(input)
+                loss = criterion(output, target) + args.alpha*center_loss(ft, target)
             else:
-                output = model(input)
+                output,ft= model(input)
                 loss = criterion(output, target)
 
             # measure accuracy and record loss
@@ -393,6 +416,13 @@ def adjust_learning_rate(optimizer, epoch, args):
         param_group['lr'] = lr
 
 
+def adjust_learning_rate_centloss(optimizer, epoch, lr):
+    """Sets the learning rate to the initial LR decayed by 10 every 15 epochs"""
+    lr = lr * (0.1 ** (epoch // 15))
+    for param_group in optimizer.param_groups:
+        param_group['lr'] = lr
+
+
 def accuracy(output, target, topk=(1,)):
     """Computes the accuracy over the k top predictions for the specified values of k"""
     with torch.no_grad():
@@ -405,7 +435,7 @@ def accuracy(output, target, topk=(1,)):
 
         res = []
         for k in topk:
-            correct_k = correct[:k].view(-1).float().sum(0, keepdim=True)
+            correct_k = correct[:k].reshape(-1).view(-1).float().sum(0, keepdim=True)
             res.append(correct_k.mul_(100.0 / batch_size))
         return res
 

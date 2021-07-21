@@ -1,6 +1,8 @@
+import torch
 import torchvision.models as models
 import torch.nn as nn
 import torch.nn.functional as F
+
 
 
 class ResNet18(nn.Module):
@@ -15,6 +17,35 @@ class ResNet18(nn.Module):
     def forward(self, x):
         out = self.model(x)
         return out
+
+
+
+class ResNet18_CenterLoss(nn.Module):
+    def __init__(self, num_classes=None):
+        super(ResNet18_CenterLoss, self).__init__()
+
+        self.model = models.resnet18(pretrained=False)
+       
+        if num_classes is not None:
+            print('Changing output layer to contain %d classes.' % num_classes)
+            self.model.fc = nn.Linear(512, num_classes)
+
+    def forward(self, x):
+        x = self.model.conv1(x)
+        x = self.model.bn1(x)
+        x = self.model.relu(x)
+        x = self.model.maxpool(x)
+        x = self.model.layer1(x)
+        x = self.model.layer2(x)
+        x = self.model.layer3(x)
+        x = self.model.layer4(x)
+        
+        ## we don't change much
+        ## forward function returns output and feature
+        x = self.model.avgpool(x)
+        ft = torch.flatten(x, 1)
+        out = self.model.fc(ft)
+        return out,ft
 
 
 class ResNet18_StartAt_Layer4_1(nn.Module):

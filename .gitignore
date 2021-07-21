@@ -4,3 +4,4 @@ logs/
 vqa_experiments/__pycache__
 snapshots
 *__pycache__
+resnet_imagenet_ckpts/
