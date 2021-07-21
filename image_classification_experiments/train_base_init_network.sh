@@ -6,7 +6,7 @@ export PYTHONPATH=${PROJ_ROOT}
 source activate remind_proj
 cd ${PROJ_ROOT}/image_classification_experiments
 
-IMAGENET_DIR=/media/tyler/nvme_drive/data/ImageNet2012
+IMAGENET_DIR=/media/tyler/nvme_drive/data/ImageNet2012 #/media/robik/ImageNet2012/
 BASE_MAX_CLASS=100
 MODEL=ResNet18ClassifyAfterLayer4_1
 LABEL_ORDER_DIR=./imagenet_files/ # location of numpy label files
