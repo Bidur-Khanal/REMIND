@@ -36,7 +36,7 @@ class CenterLoss(nn.Module):
         return loss
 
         
-        batch_size = x.size(0)
+        '''batch_size = x.size(0)
         distmat = torch.pow(x, 2).sum(dim=1, keepdim=True).expand(batch_size, self.num_classes) + \
                   torch.pow(self.centers, 2).sum(dim=1, keepdim=True).expand(self.num_classes, batch_size).t()
         distmat.addmm_(1, -2, x, self.centers.t())
@@ -49,4 +49,4 @@ class CenterLoss(nn.Module):
         dist = distmat * mask.float()
         loss = dist.clamp(min=1e-12, max=1e+12).sum() / batch_size
 
-        return loss
+        return loss'''

@@ -17,6 +17,7 @@ import torchvision.datasets as datasets
 from resnet_models import *
 import time
 from center_loss import CenterLoss
+import neptune.new as neptune
 
 parser = argparse.ArgumentParser(description='PyTorch ImageNet Training')
 parser.add_argument('--data', metavar='DIR', help='path to dataset')
@@ -41,6 +42,8 @@ parser.add_argument('-b', '--batch_size', default=256, type=int,
                          'using Data Parallel or Distributed Data Parallel')
 parser.add_argument('--lr', '--learning-rate', default=0.1, type=float,
                     metavar='LR', help='initial learning rate', dest='lr')
+parser.add_argument('--lr_center_loss', '--learning-rate-center-loss', default=0.5, type=float,
+                    metavar='LRC', help='initial learning rate for center loss', dest='lr_center_loss')
 parser.add_argument('--momentum', default=0.9, type=float, metavar='M',
                     help='momentum')
 parser.add_argument('--wd', '--weight-decay', default=1e-4, type=float,
@@ -71,13 +74,17 @@ parser.add_argument('--multiprocessing-distributed', action='store_true',
                          'multi node data parallel training')
                         
 best_acc1 = 0
-
+run = neptune.init(project='bidur/CenterLoss',
+                   api_token='eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiIxM2NkY2I5MC01OGUzLTQzZWEtODYzYi01YTZiYmFjZmM4NmIifQ==') # your credentials
 
 
 def main():
     args = parser.parse_args()
-    args.gpu = None
+    if args.gpu == -1:
+        args.gpu = None
     print(vars(args))
+    run["parameters"] = {"base_max_class": args.base_max_class,"optimizer":"SGD","momentum":args.momentum,"seed": args.seed,"epochs":args.epochs,
+    "multiprocessing-distributed":args.multiprocessing_distributed,"model-learning-rate": args.lr,"center-loss":args.center_loss,"alpa":args.alpha}
     if not os.path.exists(args.save_dir):
         os.makedirs(args.save_dir)
 
@@ -97,8 +104,7 @@ def main():
 
     if args.dist_url == "env://" and args.world_size == -1:
         args.world_size = int(os.environ["WORLD_SIZE"])
-        print ("***********",args.world_size)
-
+        
     args.distributed = args.world_size > 1 or args.multiprocessing_distributed
 
     ngpus_per_node = torch.cuda.device_count()
@@ -117,7 +123,7 @@ def main():
 def main_worker(gpu, ngpus_per_node, args):
     global best_acc1
     args.gpu = gpu
-    lr = 0.5  ##learning-rate used for the center loss
+    
     if args.gpu is not None:
         print("Use GPU: {} for training".format(args.gpu))
 
@@ -171,7 +177,7 @@ def main_worker(gpu, ngpus_per_node, args):
                                     momentum=args.momentum,
                                     weight_decay=args.weight_decay)
 
-        optimizer_centloss = torch.optim.SGD(center_loss.parameters(), lr=lr)
+        optimizer_centloss = torch.optim.SGD(center_loss.parameters(), lr=args.lr_center_loss)
 
     else:
         center_loss = None
