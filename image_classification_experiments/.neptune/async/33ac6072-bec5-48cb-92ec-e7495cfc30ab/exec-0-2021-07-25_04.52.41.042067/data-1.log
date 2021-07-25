@@ -1,0 +1,62 @@
+{"obj": {"type": "AssignString", "path": ["sys", "name"], "value": "Untitled"}, "version": 1}
+{"obj": {"type": "AssignString", "path": ["sys", "description"], "value": ""}, "version": 2}
+{"obj": {"type": "AssignString", "path": ["sys", "hostname"], "value": "robik"}, "version": 3}
+{"obj": {"type": "AssignBool", "path": ["sys", "failed"], "value": false}, "version": 4}
+{"obj": {"type": "ClearStringLog", "path": ["monitoring", "stdout"]}, "version": 5}
+{"obj": {"type": "ClearStringLog", "path": ["monitoring", "stderr"]}, "version": 6}
+{"obj": {"type": "AssignString", "path": ["source_code", "entrypoint"], "value": "train_base_init_network_from_scratch.py"}, "version": 7}
+{"obj": {"type": "UploadFileSet", "path": ["source_code", "files"], "file_globs": ["/home/bidur/REMIND/image_classification_experiments/train_base_init_network_from_scratch.py"], "reset": "False"}, "version": 8}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "psutil is not installed. Hardware metrics will not be collected.\n", "step": null, "ts": 1627203161.349792}]}, "version": 9}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "", "step": null, "ts": 1627203161.3523297}]}, "version": 10}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "https://app.neptune.ai/bidur/CenterLoss/e/CEN-11\n", "step": null, "ts": 1627203161.3525565}]}, "version": 11}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "{'data': '/home/bidur/datasets/ImageNet2012/', 'arch': 'ResNet18_CenterLoss', 'ckpt_file': 'ResNet18ClassifyAfterLayer4_1', 'save_dir': 'resnet_imagenet_ckpts', 'base_max_class': 10, 'alpha': 1.0, 'labels_dir': 'imagenet_files', 'center_loss': False, 'workers': 8, 'epochs': 40, 'start_epoch': 0, 'batch_size': 256, 'lr': 0.1, 'lr_center_loss': 0.5, 'momentum': 0.9, 'weight_decay': 0.0001, 'print_freq': 10, 'resume': '', 'evaluate': False, 'world_size': -1, 'rank': -1, 'dist_url': 'tcp://224.66.41.62:23456', 'dist_backend': 'nccl', 'seed': 0, 'gpu': 0, 'multiprocessing_distributed': False}", "step": null, "ts": 1627203161.3533392}]}, "version": 12}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627203161.3536782}]}, "version": 13}
+{"obj": {"type": "AssignInt", "path": ["parameters", "base_max_class"], "value": 10}, "version": 14}
+{"obj": {"type": "AssignString", "path": ["parameters", "optimizer"], "value": "SGD"}, "version": 15}
+{"obj": {"type": "AssignFloat", "path": ["parameters", "momentum"], "value": 0.9}, "version": 16}
+{"obj": {"type": "AssignInt", "path": ["parameters", "seed"], "value": 0}, "version": 17}
+{"obj": {"type": "AssignInt", "path": ["parameters", "epochs"], "value": 40}, "version": 18}
+{"obj": {"type": "AssignBool", "path": ["parameters", "multiprocessing-distributed"], "value": false}, "version": 19}
+{"obj": {"type": "AssignFloat", "path": ["parameters", "model-learning-rate"], "value": 0.1}, "version": 20}
+{"obj": {"type": "AssignFloat", "path": ["parameters", "center-loss-learning-rate"], "value": 0.5}, "version": 21}
+{"obj": {"type": "AssignBool", "path": ["parameters", "center-loss"], "value": false}, "version": 22}
+{"obj": {"type": "AssignFloat", "path": ["parameters", "alpa"], "value": 1.0}, "version": 23}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "train_base_init_network_from_scratch.py:95: UserWarning: You have chosen to seed training. This will turn on the CUDNN deterministic setting, which can slow down your training considerably! You may see unexpected behavior when restarting from checkpoints.\n  warnings.warn('You have chosen to seed training. '\n", "step": null, "ts": 1627203161.3545716}]}, "version": 24}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "train_base_init_network_from_scratch.py:102: UserWarning: You have chosen a specific GPU. This will completely disable data parallelism.\n  warnings.warn('You have chosen a specific GPU. This will completely '\n", "step": null, "ts": 1627203161.3546674}]}, "version": 25}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "Use GPU: 0 for training", "step": null, "ts": 1627203161.371118}]}, "version": 26}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627203161.3714104}]}, "version": 27}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\nloading the data...", "step": null, "ts": 1627203163.1559236}]}, "version": 28}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627203163.1561155}]}, "version": 29}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "len train base-init loader ", "step": null, "ts": 1627203166.1560056}]}, "version": 30}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": " ", "step": null, "ts": 1627203166.1561592}]}, "version": 31}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "13000", "step": null, "ts": 1627203166.1565373}]}, "version": 32}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627203166.1566186}]}, "version": 33}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "len val base-init loader ", "step": null, "ts": 1627203166.286621}]}, "version": 34}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": " ", "step": null, "ts": 1627203166.286732}]}, "version": 35}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "500", "step": null, "ts": 1627203166.2867966}]}, "version": 36}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627203166.2868767}]}, "version": 37}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\nstarting training...", "step": null, "ts": 1627203166.286976}]}, "version": 38}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627203166.2870407}]}, "version": 39}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "traceback"], "values": [{"value": "An uncaught exception occurred while run was active on worker robik.", "step": null, "ts": 1627203171.5135324}, {"value": "Making run as failed", "step": null, "ts": 1627203171.5135324}, {"value": "Traceback:", "step": null, "ts": 1627203171.5135324}, {"value": "  File \"train_base_init_network_from_scratch.py\", line 461, in <module>\n    main()\n", "step": null, "ts": 1627203171.5135324}, {"value": "  File \"train_base_init_network_from_scratch.py\", line 120, in main\n    main_worker(args.gpu, ngpus_per_node, args)\n", "step": null, "ts": 1627203171.5135324}, {"value": "  File \"train_base_init_network_from_scratch.py\", line 260, in main_worker\n    train(train_loader, model, criterion,  optimizer, epoch, args,center_loss = center_loss , optimizer_centerloss = optimizer_centerloss)\n", "step": null, "ts": 1627203171.5135324}, {"value": "  File \"train_base_init_network_from_scratch.py\", line 333, in train\n    print (loss, loss.avg, loss.val)\n", "step": null, "ts": 1627203171.5135324}, {"value": "AttributeError(\"'Tensor' object has no attribute 'avg'\")", "step": null, "ts": 1627203171.5135324}]}, "version": 40}
+{"obj": {"type": "AssignBool", "path": ["sys", "failed"], "value": true}, "version": 41}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "Traceback (most recent call last):\n", "step": null, "ts": 1627203171.5137765}]}, "version": 42}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"train_base_init_network_from_scratch.py\", line 461, in <module>\n", "step": null, "ts": 1627203171.5138512}]}, "version": 43}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1627203171.5140154}]}, "version": 44}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "main()", "step": null, "ts": 1627203171.5140758}]}, "version": 45}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1627203171.5141363}]}, "version": 46}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"train_base_init_network_from_scratch.py\", line 120, in main\n", "step": null, "ts": 1627203171.5142171}]}, "version": 47}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1627203171.5143664}]}, "version": 48}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "main_worker(args.gpu, ngpus_per_node, args)", "step": null, "ts": 1627203171.51445}]}, "version": 49}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1627203171.5145392}]}, "version": 50}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"train_base_init_network_from_scratch.py\", line 260, in main_worker\n", "step": null, "ts": 1627203171.5146348}]}, "version": 51}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1627203171.5147572}]}, "version": 52}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "train(train_loader, model, criterion,  optimizer, epoch, args,center_loss = center_loss , optimizer_centerloss = optimizer_centerloss)", "step": null, "ts": 1627203171.5148077}]}, "version": 53}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1627203171.5148597}]}, "version": 54}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"train_base_init_network_from_scratch.py\", line 333, in train\n", "step": null, "ts": 1627203171.5149097}]}, "version": 55}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1627203171.5150306}]}, "version": 56}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "print (loss, loss.avg, loss.val)", "step": null, "ts": 1627203171.5150993}]}, "version": 57}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1627203171.515186}]}, "version": 58}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "AttributeError", "step": null, "ts": 1627203171.5152884}]}, "version": 59}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": ": ", "step": null, "ts": 1627203171.5153737}]}, "version": 60}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "'Tensor' object has no attribute 'avg'", "step": null, "ts": 1627203171.5154564}]}, "version": 61}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1627203171.5155313}]}, "version": 62}

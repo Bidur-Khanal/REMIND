@@ -1,0 +1,398 @@
+{"obj": {"type": "AssignString", "path": ["sys", "name"], "value": "Untitled"}, "version": 1}
+{"obj": {"type": "AssignString", "path": ["sys", "description"], "value": ""}, "version": 2}
+{"obj": {"type": "AssignString", "path": ["sys", "hostname"], "value": "robik"}, "version": 3}
+{"obj": {"type": "AssignBool", "path": ["sys", "failed"], "value": false}, "version": 4}
+{"obj": {"type": "ClearStringLog", "path": ["monitoring", "stdout"]}, "version": 5}
+{"obj": {"type": "ClearStringLog", "path": ["monitoring", "stderr"]}, "version": 6}
+{"obj": {"type": "AssignString", "path": ["source_code", "entrypoint"], "value": "train_base_init_network_from_scratch.py"}, "version": 7}
+{"obj": {"type": "UploadFileSet", "path": ["source_code", "files"], "file_globs": ["/home/bidur/REMIND/image_classification_experiments/train_base_init_network_from_scratch.py"], "reset": "False"}, "version": 8}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "psutil is not installed. Hardware metrics will not be collected.\n", "step": null, "ts": 1627236382.8041022}]}, "version": 9}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "", "step": null, "ts": 1627236382.8064744}]}, "version": 10}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "https://app.neptune.ai/bidur/CenterLoss/e/CEN-19\n", "step": null, "ts": 1627236382.8070736}]}, "version": 11}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "{'data': '/home/bidur/datasets/ImageNet2012/', 'arch': 'ResNet18_CenterLoss', 'ckpt_file': 'ResNet18ClassifyAfterLayer4_1', 'save_dir': 'resnet_imagenet_ckpts', 'base_max_class': 10, 'alpha': 1.0, 'labels_dir': 'imagenet_files', 'center_loss': True, 'workers': 8, 'epochs': 40, 'start_epoch': 0, 'batch_size': 256, 'lr': 0.1, 'lr_center_loss': 0.5, 'momentum': 0.9, 'weight_decay': 0.0001, 'print_freq': 10, 'resume': '', 'evaluate': False, 'world_size': -1, 'rank': -1, 'dist_url': 'tcp://224.66.41.62:23456', 'dist_backend': 'nccl', 'seed': 0, 'gpu': 0, 'multiprocessing_distributed': False}", "step": null, "ts": 1627236382.8078983}]}, "version": 12}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236382.8080597}]}, "version": 13}
+{"obj": {"type": "AssignInt", "path": ["parameters", "base_max_class"], "value": 10}, "version": 14}
+{"obj": {"type": "AssignString", "path": ["parameters", "optimizer"], "value": "SGD"}, "version": 15}
+{"obj": {"type": "AssignFloat", "path": ["parameters", "momentum"], "value": 0.9}, "version": 16}
+{"obj": {"type": "AssignInt", "path": ["parameters", "seed"], "value": 0}, "version": 17}
+{"obj": {"type": "AssignInt", "path": ["parameters", "epochs"], "value": 40}, "version": 18}
+{"obj": {"type": "AssignBool", "path": ["parameters", "multiprocessing-distributed"], "value": false}, "version": 19}
+{"obj": {"type": "AssignFloat", "path": ["parameters", "model-learning-rate"], "value": 0.1}, "version": 20}
+{"obj": {"type": "AssignFloat", "path": ["parameters", "center-loss-learning-rate"], "value": 0.5}, "version": 21}
+{"obj": {"type": "AssignBool", "path": ["parameters", "center-loss"], "value": true}, "version": 22}
+{"obj": {"type": "AssignFloat", "path": ["parameters", "alpa"], "value": 1.0}, "version": 23}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "train_base_init_network_from_scratch.py:95: UserWarning: You have chosen to seed training. This will turn on the CUDNN deterministic setting, which can slow down your training considerably! You may see unexpected behavior when restarting from checkpoints.\n  warnings.warn('You have chosen to seed training. '\n", "step": null, "ts": 1627236382.809001}]}, "version": 24}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "train_base_init_network_from_scratch.py:102: UserWarning: You have chosen a specific GPU. This will completely disable data parallelism.\n  warnings.warn('You have chosen a specific GPU. This will completely '\n", "step": null, "ts": 1627236382.8091023}]}, "version": 25}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "Use GPU: 0 for training", "step": null, "ts": 1627236382.8261347}]}, "version": 26}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236382.8264532}]}, "version": 27}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\nloading the data...", "step": null, "ts": 1627236384.6422524}]}, "version": 28}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236384.6423838}]}, "version": 29}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "len train base-init loader ", "step": null, "ts": 1627236387.6034381}]}, "version": 30}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": " ", "step": null, "ts": 1627236387.603567}]}, "version": 31}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "13000", "step": null, "ts": 1627236387.6036294}]}, "version": 32}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236387.603697}]}, "version": 33}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "len val base-init loader ", "step": null, "ts": 1627236387.7299936}]}, "version": 34}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": " ", "step": null, "ts": 1627236387.7301042}]}, "version": 35}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "500", "step": null, "ts": 1627236387.7301648}]}, "version": 36}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236387.73024}]}, "version": 37}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\nstarting training...", "step": null, "ts": 1627236387.7303362}]}, "version": 38}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236387.7304015}]}, "version": 39}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "/home/bidur/REMIND/image_classification_experiments/center_loss.py:42: UserWarning: This overload of addmm_ is deprecated:\n\taddmm_(Number beta, Number alpha, Tensor mat1, Tensor mat2)\nConsider using one of the following signatures instead:\n\taddmm_(Tensor mat1, Tensor mat2, *, Number beta, Number alpha) (Triggered internally at  /opt/conda/conda-bld/pytorch_1607370117127/work/torch/csrc/utils/python_arg_parser.cpp:882.)\n  distmat.addmm_(1, -2, x, self.centers.t())\n", "step": null, "ts": 1627236391.402033}]}, "version": 40}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(7.0775, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236391.4043796}]}, "version": 41}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236391.4045603}]}, "version": 42}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "Epoch: [0][0/51]\tTime 4.987 (4.987)\tData 2.489 (2.489)\tLoss 7.0775 (7.0775)\tAcc@1 0.000 (0.000)\tAcc@5 0.000 (0.000)", "step": null, "ts": 1627236392.7356575}]}, "version": 43}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236392.7357888}]}, "version": 44}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 0.0}, "version": 45}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 0.0}, "version": 46}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(4.2607, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236392.8640766}]}, "version": 47}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236392.8642159}]}, "version": 48}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 5.078125}, "version": 49}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 24.4140625}, "version": 50}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.8480, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236393.221909}]}, "version": 51}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236393.2220414}]}, "version": 52}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 7.6822919845581055}, "version": 53}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 33.984375}, "version": 54}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(3.0590, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236393.5824704}]}, "version": 55}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236393.5826209}]}, "version": 56}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 8.30078125}, "version": 57}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 40.33203125}, "version": 58}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(4.3097, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236393.9426572}]}, "version": 59}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236393.9428017}]}, "version": 60}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 8.75}, "version": 61}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 42.890625}, "version": 62}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(5.1847, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236394.3044603}]}, "version": 63}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236394.30465}]}, "version": 64}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 8.919271469116211}, "version": 65}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 44.79166793823242}, "version": 66}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(5.9794, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236394.6681364}]}, "version": 67}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236394.6682963}]}, "version": 68}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 9.486607551574707}, "version": 69}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 45.87053680419922}, "version": 70}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(7.2586, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236395.0254157}]}, "version": 71}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236395.025604}]}, "version": 72}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 9.814453125}, "version": 73}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 46.77734375}, "version": 74}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(9.3826, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236395.3844461}]}, "version": 75}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236395.384625}]}, "version": 76}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.46006965637207}, "version": 77}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 47.22222137451172}, "version": 78}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(9.8943, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236395.7416954}]}, "version": 79}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236395.7418532}]}, "version": 80}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.390625}, "version": 81}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 47.578125}, "version": 82}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(7.6434, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236396.1025827}]}, "version": 83}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236396.1027389}]}, "version": 84}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "Epoch: [0][10/51]\tTime 0.361 (0.762)\tData 0.240 (0.422)\tLoss 7.6434 (6.0816)\tAcc@1 8.203 (10.192)\tAcc@5 44.531 (47.301)", "step": null, "ts": 1627236396.348664}]}, "version": 85}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236396.348875}]}, "version": 86}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.19176197052002}, "version": 87}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 47.3011360168457}, "version": 88}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(5.1767, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236396.4664414}]}, "version": 89}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236396.4665956}]}, "version": 90}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.44921875}, "version": 91}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 48.20963668823242}, "version": 92}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(4.9887, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236396.8250782}]}, "version": 93}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236396.8252368}]}, "version": 94}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.48677921295166}, "version": 95}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 48.19711685180664}, "version": 96}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(4.8807, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236397.1838236}]}, "version": 97}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236397.184013}]}, "version": 98}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.797991752624512}, "version": 99}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 48.40959930419922}, "version": 100}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(6.4258, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236397.5430121}]}, "version": 101}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236397.543167}]}, "version": 102}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.572916984558105}, "version": 103}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 48.515628814697266}, "version": 104}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(5.4012, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236397.9029624}]}, "version": 105}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236397.9031217}]}, "version": 106}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.4248046875}, "version": 107}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 48.4130859375}, "version": 108}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(5.6952, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236398.260936}]}, "version": 109}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236398.2610888}]}, "version": 110}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.431984901428223}, "version": 111}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 48.50643539428711}, "version": 112}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(5.7226, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236398.6215048}]}, "version": 113}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236398.6216962}]}, "version": 114}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.416666984558105}, "version": 115}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 48.52430725097656}, "version": 116}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(6.1831, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236398.9801946}]}, "version": 117}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236398.980358}]}, "version": 118}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.464638710021973}, "version": 119}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 48.64309310913086}, "version": 120}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(4.7785, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236399.3445842}]}, "version": 121}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236399.3447492}]}, "version": 122}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.5078125}, "version": 123}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 48.76953125}, "version": 124}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(4.5421, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236399.7040622}]}, "version": 125}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236399.704248}]}, "version": 126}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "Epoch: [0][20/51]\tTime 0.361 (0.571)\tData 0.237 (0.334)\tLoss 4.5421 (5.7473)\tAcc@1 8.594 (10.417)\tAcc@5 47.656 (48.717)", "step": null, "ts": 1627236399.947304}]}, "version": 127}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236399.9475064}]}, "version": 128}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.416666984558105}, "version": 129}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 48.71651840209961}, "version": 130}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(4.3403, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236400.0627253}]}, "version": 131}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236400.0628898}]}, "version": 132}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.3515625}, "version": 133}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 48.49076843261719}, "version": 134}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(3.3546, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236400.4162707}]}, "version": 135}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236400.4164393}]}, "version": 136}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.4789400100708}, "version": 137}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 48.64130401611328}, "version": 138}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(3.6933, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236400.77751}]}, "version": 139}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236400.777756}]}, "version": 140}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.530599594116211}, "version": 141}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 48.779296875}, "version": 142}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(3.1260, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236401.136246}]}, "version": 143}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236401.136436}]}, "version": 144}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.671875}, "version": 145}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 49.0625}, "version": 146}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(3.4120, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236401.5007513}]}, "version": 147}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236401.5009212}]}, "version": 148}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.772235870361328}, "version": 149}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 49.44411087036133}, "version": 150}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(3.5090, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236401.8623798}]}, "version": 151}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236401.8625607}]}, "version": 152}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.749421119689941}, "version": 153}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 49.53703689575195}, "version": 154}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(4.0899, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236402.221088}]}, "version": 155}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236402.2212508}]}, "version": 156}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.839844703674316}, "version": 157}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 49.66518020629883}, "version": 158}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(3.4951, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236402.5783112}]}, "version": 159}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236402.5784855}]}, "version": 160}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.897090911865234}, "version": 161}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 49.75754165649414}, "version": 162}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.7318, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236402.9348643}]}, "version": 163}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236402.9350607}]}, "version": 164}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.911458969116211}, "version": 165}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 49.94791793823242}, "version": 166}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.9243, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236403.2915773}]}, "version": 167}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236403.2917163}]}, "version": 168}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "Epoch: [0][30/51]\tTime 0.356 (0.502)\tData 0.233 (0.302)\tLoss 2.9243 (5.0119)\tAcc@1 12.109 (10.950)\tAcc@5 51.172 (49.987)", "step": null, "ts": 1627236403.540423}]}, "version": 169}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236403.5405777}]}, "version": 170}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 10.950100898742676}, "version": 171}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 49.987396240234375}, "version": 172}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.7658, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236403.6550553}]}, "version": 173}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236403.65531}]}, "version": 174}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.03515625}, "version": 175}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 50.29296875}, "version": 176}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.9516, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236404.0153751}]}, "version": 177}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236404.0155506}]}, "version": 178}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.138731002807617}, "version": 179}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 50.50899887084961}, "version": 180}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.4523, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236404.37934}]}, "version": 181}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236404.3794968}]}, "version": 182}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.339613914489746}, "version": 183}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 50.735294342041016}, "version": 184}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(3.4878, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236404.7519162}]}, "version": 185}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236404.7524376}]}, "version": 186}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.450892448425293}, "version": 187}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 50.80357360839844}, "version": 188}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.6500, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236405.1088705}]}, "version": 189}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236405.1090875}]}, "version": 190}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.490885734558105}, "version": 191}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 51.01996612548828}, "version": 192}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(3.0319, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236405.4624698}]}, "version": 193}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236405.462647}]}, "version": 194}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.465372085571289}, "version": 195}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 50.992401123046875}, "version": 196}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.6458, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236405.8174534}]}, "version": 197}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236405.817579}]}, "version": 198}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.513157844543457}, "version": 199}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 51.14103698730469}, "version": 200}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.4594, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236406.178585}]}, "version": 201}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236406.1787105}]}, "version": 202}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.568510055541992}, "version": 203}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 51.131813049316406}, "version": 204}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.5916, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236406.5346527}]}, "version": 205}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236406.5347798}]}, "version": 206}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.572265625}, "version": 207}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 51.015625}, "version": 208}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.7231, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236406.8905368}]}, "version": 209}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236406.8906639}]}, "version": 210}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "Epoch: [0][40/51]\tTime 0.356 (0.467)\tData 0.237 (0.286)\tLoss 2.7231 (4.4665)\tAcc@1 17.188 (11.709)\tAcc@5 51.562 (51.029)", "step": null, "ts": 1627236407.1354184}]}, "version": 211}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236407.1355665}]}, "version": 212}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.709221839904785}, "version": 213}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 51.028961181640625}, "version": 214}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.4274, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236407.2493532}]}, "version": 215}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236407.2494805}]}, "version": 216}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.811756134033203}, "version": 217}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 51.06026840209961}, "version": 218}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.5558, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236407.60306}]}, "version": 219}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236407.6031845}]}, "version": 220}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.746003150939941}, "version": 221}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 51.30813980102539}, "version": 222}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.3527, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236407.9610493}]}, "version": 223}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236407.9611695}]}, "version": 224}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.780895233154297}, "version": 225}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 51.473724365234375}, "version": 226}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.6789, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236408.3151639}]}, "version": 227}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236408.3152895}]}, "version": 228}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.78819465637207}, "version": 229}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 51.70138931274414}, "version": 230}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.4051, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236408.6720161}]}, "version": 231}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236408.6721559}]}, "version": 232}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.897079467773438}, "version": 233}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 51.97860336303711}, "version": 234}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.3922, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236409.0323334}]}, "version": 235}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236409.0324583}]}, "version": 236}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.959774017333984}, "version": 237}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 52.119346618652344}, "version": 238}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.3581, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236409.3942037}]}, "version": 239}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236409.3943238}]}, "version": 240}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 11.995443344116211}, "version": 241}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 52.205406188964844}, "version": 242}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2442, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236409.750157}]}, "version": 243}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236409.7502756}]}, "version": 244}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 12.12531852722168}, "version": 245}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 52.46332931518555}, "version": 246}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.5502, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236410.109566}]}, "version": 247}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236410.1096916}]}, "version": 248}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 12.1328125}, "version": 249}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 52.5234375}, "version": 250}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2813, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236410.9346855}]}, "version": 251}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236410.9349134}]}, "version": 252}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "Epoch: [0][50/51]\tTime 1.785 (0.474)\tData 0.238 (0.277)\tLoss 2.2813 (4.0738)\tAcc@1 13.500 (12.154)\tAcc@5 55.500 (52.569)", "step": null, "ts": 1627236411.9031959}]}, "version": 253}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236411.9037027}]}, "version": 254}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 12.15384578704834}, "version": 255}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 52.56922912597656}, "version": 256}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "Test: [0/2]\tTime 1.714 (1.714)\tLoss 2.3007 (2.3007)\tAcc@1 14.844 (14.844)\tAcc@5 57.031 (57.031)", "step": null, "ts": 1627236413.6831193}]}, "version": 257}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236413.6833925}]}, "version": 258}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": " * Acc@1 13.000 Acc@5 60.400", "step": null, "ts": 1627236414.3758855}]}, "version": 259}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236414.3760056}]}, "version": 260}
+{"obj": {"type": "AssignFloat", "path": ["val_acc1"], "value": 13.000000953674316}, "version": 261}
+{"obj": {"type": "AssignFloat", "path": ["val_acc5"], "value": 60.400001525878906}, "version": 262}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.6570, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236417.402334}]}, "version": 263}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236417.4027383}]}, "version": 264}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "Epoch: [1][0/51]\tTime 2.550 (2.550)\tData 2.404 (2.404)\tLoss 2.6570 (2.6570)\tAcc@1 12.109 (12.109)\tAcc@5 53.906 (53.906)", "step": null, "ts": 1627236417.6465092}]}, "version": 265}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236417.648287}]}, "version": 266}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 12.109375}, "version": 267}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 53.90625}, "version": 268}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.3238, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236417.7654386}]}, "version": 269}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236417.7664878}]}, "version": 270}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 15.234375}, "version": 271}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 58.3984375}, "version": 272}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2669, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236418.1262026}]}, "version": 273}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236418.1274786}]}, "version": 274}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 14.713541984558105}, "version": 275}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 59.114585876464844}, "version": 276}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2410, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236418.4916406}]}, "version": 277}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236418.4977734}]}, "version": 278}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 15.33203125}, "version": 279}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 60.44921875}, "version": 280}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2512, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236418.864373}]}, "version": 281}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236418.8659153}]}, "version": 282}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 14.609375}, "version": 283}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 62.03125}, "version": 284}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2366, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236419.2410812}]}, "version": 285}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236419.2414238}]}, "version": 286}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 14.388021469116211}, "version": 287}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 62.3046875}, "version": 288}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2371, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236419.6324935}]}, "version": 289}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236419.633545}]}, "version": 290}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 14.508929252624512}, "version": 291}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 62.890628814697266}, "version": 292}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2645, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236420.0009227}]}, "version": 293}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236420.0032492}]}, "version": 294}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 15.380859375}, "version": 295}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 63.57421875}, "version": 296}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2777, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236420.372993}]}, "version": 297}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236420.375626}]}, "version": 298}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 16.05902862548828}, "version": 299}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 63.75868225097656}, "version": 300}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.4165, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236420.7451696}]}, "version": 301}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236420.7453527}]}, "version": 302}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 16.2890625}, "version": 303}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 64.0625}, "version": 304}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.3852, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236421.1303172}]}, "version": 305}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236421.132462}]}, "version": 306}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "Epoch: [1][10/51]\tTime 0.374 (0.571)\tData 0.243 (0.438)\tLoss 2.3852 (2.3234)\tAcc@1 14.453 (16.122)\tAcc@5 64.453 (64.098)", "step": null, "ts": 1627236421.3787756}]}, "version": 307}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236421.3825905}]}, "version": 308}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 16.122159957885742}, "version": 309}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 64.09801483154297}, "version": 310}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2305, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236421.5071433}]}, "version": 311}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236421.5101268}]}, "version": 312}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 16.6015625}, "version": 313}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 64.29036712646484}, "version": 314}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.1953, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236421.892337}]}, "version": 315}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236421.893663}]}, "version": 316}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 16.736780166625977}, "version": 317}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 64.54327392578125}, "version": 318}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2137, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236422.2520802}]}, "version": 319}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236422.2523239}]}, "version": 320}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 16.9921875}, "version": 321}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 64.6484375}, "version": 322}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2113, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236422.6166067}]}, "version": 323}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236422.619181}]}, "version": 324}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 17.109375}, "version": 325}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 64.84375}, "version": 326}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2485, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236422.9957848}]}, "version": 327}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236422.9987922}]}, "version": 328}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 17.333984375}, "version": 329}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 64.892578125}, "version": 330}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.1871, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236423.3587527}]}, "version": 331}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236423.3605669}]}, "version": 332}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 17.647058486938477}, "version": 333}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 65.18842315673828}, "version": 334}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2799, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236423.7241566}]}, "version": 335}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236423.725326}]}, "version": 336}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 17.68663215637207}, "version": 337}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 65.19097137451172}, "version": 338}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.1929, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236424.0830562}]}, "version": 339}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236424.083246}]}, "version": 340}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 17.598684310913086}, "version": 341}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 65.35772705078125}, "version": 342}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2302, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236424.4461992}]}, "version": 343}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236424.4463978}]}, "version": 344}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 17.6953125}, "version": 345}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 65.390625}, "version": 346}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2030, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236424.809896}]}, "version": 347}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236424.8100815}]}, "version": 348}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "Epoch: [1][20/51]\tTime 0.364 (0.474)\tData 0.240 (0.342)\tLoss 2.2030 (2.2738)\tAcc@1 24.609 (18.025)\tAcc@5 68.750 (65.551)", "step": null, "ts": 1627236425.0565019}]}, "version": 349}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236425.0566862}]}, "version": 350}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 18.024553298950195}, "version": 351}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 65.55059814453125}, "version": 352}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.1780, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236425.1746907}]}, "version": 353}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236425.1749184}]}, "version": 354}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 18.37713050842285}, "version": 355}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 65.625}, "version": 356}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2194, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236425.5389915}]}, "version": 357}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236425.539222}]}, "version": 358}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 18.46127700805664}, "version": 359}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 65.64198303222656}, "version": 360}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.2178, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236425.900185}]}, "version": 361}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236425.9003863}]}, "version": 362}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 18.39192771911621}, "version": 363}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 65.64128112792969}, "version": 364}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "tensor(2.3207, device='cuda:0', grad_fn=<AddBackward0>)", "step": null, "ts": 1627236426.2587698}]}, "version": 365}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stdout"], "values": [{"value": "\n", "step": null, "ts": 1627236426.2590451}]}, "version": 366}
+{"obj": {"type": "AssignFloat", "path": ["train_acc1"], "value": 18.5}, "version": 367}
+{"obj": {"type": "AssignFloat", "path": ["train_acc5"], "value": 65.8125}, "version": 368}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "traceback"], "values": [{"value": "An uncaught exception occurred while run was active on worker robik.", "step": null, "ts": 1627236426.6434455}, {"value": "Making run as failed", "step": null, "ts": 1627236426.6434455}, {"value": "Traceback:", "step": null, "ts": 1627236426.6434455}, {"value": "  File \"train_base_init_network_from_scratch.py\", line 461, in <module>\n    main()\n", "step": null, "ts": 1627236426.6434455}, {"value": "  File \"train_base_init_network_from_scratch.py\", line 120, in main\n    main_worker(args.gpu, ngpus_per_node, args)\n", "step": null, "ts": 1627236426.6434455}, {"value": "  File \"train_base_init_network_from_scratch.py\", line 260, in main_worker\n    train(train_loader, model, criterion,  optimizer, epoch, args,center_loss = center_loss , optimizer_centerloss = optimizer_centerloss)\n", "step": null, "ts": 1627236426.6434455}, {"value": "  File \"train_base_init_network_from_scratch.py\", line 307, in train\n    loss = criterion(output, target) + args.alpha*center_loss(ft, target)\n", "step": null, "ts": 1627236426.6434455}, {"value": "  File \"/home/bidur/miniconda3/envs/deeplearning-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py\", line 727, in _call_impl\n    result = self.forward(*input, **kwargs)\n", "step": null, "ts": 1627236426.6434455}, {"value": "  File \"/home/bidur/REMIND/image_classification_experiments/center_loss.py\", line 45, in forward\n    if self.use_gpu: classes = classes.cuda()\n", "step": null, "ts": 1627236426.6434455}, {"value": "KeyboardInterrupt()", "step": null, "ts": 1627236426.6434455}]}, "version": 369}
+{"obj": {"type": "AssignBool", "path": ["sys", "failed"], "value": true}, "version": 370}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "Traceback (most recent call last):\n", "step": null, "ts": 1627236426.6437225}]}, "version": 371}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"train_base_init_network_from_scratch.py\", line 461, in <module>\n", "step": null, "ts": 1627236426.6438267}]}, "version": 372}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1627236426.6440294}]}, "version": 373}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "main()", "step": null, "ts": 1627236426.6441057}]}, "version": 374}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1627236426.6441686}]}, "version": 375}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"train_base_init_network_from_scratch.py\", line 120, in main\n", "step": null, "ts": 1627236426.644245}]}, "version": 376}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1627236426.6443565}]}, "version": 377}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "main_worker(args.gpu, ngpus_per_node, args)", "step": null, "ts": 1627236426.6444273}]}, "version": 378}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1627236426.6444917}]}, "version": 379}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"train_base_init_network_from_scratch.py\", line 260, in main_worker\n", "step": null, "ts": 1627236426.6445563}]}, "version": 380}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1627236426.6446826}]}, "version": 381}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "train(train_loader, model, criterion,  optimizer, epoch, args,center_loss = center_loss , optimizer_centerloss = optimizer_centerloss)", "step": null, "ts": 1627236426.6447625}]}, "version": 382}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1627236426.6448286}]}, "version": 383}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"train_base_init_network_from_scratch.py\", line 307, in train\n", "step": null, "ts": 1627236426.6449149}]}, "version": 384}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1627236426.6450622}]}, "version": 385}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "loss = criterion(output, target) + args.alpha*center_loss(ft, target)", "step": null, "ts": 1627236426.6451254}]}, "version": 386}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1627236426.6451926}]}, "version": 387}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"/home/bidur/miniconda3/envs/deeplearning-pytorch/lib/python3.8/site-packages/torch/nn/modules/module.py\", line 727, in _call_impl\n", "step": null, "ts": 1627236426.6452878}]}, "version": 388}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1627236426.6454678}]}, "version": 389}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "result = self.forward(*input, **kwargs)", "step": null, "ts": 1627236426.645527}]}, "version": 390}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1627236426.6455903}]}, "version": 391}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "  File \"/home/bidur/REMIND/image_classification_experiments/center_loss.py\", line 45, in forward\n", "step": null, "ts": 1627236426.6456652}]}, "version": 392}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "    ", "step": null, "ts": 1627236426.6458006}]}, "version": 393}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "if self.use_gpu: classes = classes.cuda()", "step": null, "ts": 1627236426.6458855}]}, "version": 394}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1627236426.6459568}]}, "version": 395}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "KeyboardInterrupt", "step": null, "ts": 1627236426.6460323}]}, "version": 396}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "", "step": null, "ts": 1627236426.646114}]}, "version": 397}
+{"obj": {"type": "LogStrings", "path": ["monitoring", "stderr"], "values": [{"value": "\n", "step": null, "ts": 1627236426.6461782}]}, "version": 398}
