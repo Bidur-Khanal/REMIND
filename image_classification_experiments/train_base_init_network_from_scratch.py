@@ -97,7 +97,7 @@ def main():
 
     if args.dist_url == "env://" and args.world_size == -1:
         args.world_size = int(os.environ["WORLD_SIZE"])
-        print ("***********",args.world_size)
+       
 
     args.distributed = args.world_size > 1 or args.multiprocessing_distributed
 
@@ -318,7 +318,7 @@ def train(train_loader, model, criterion, optimizer, epoch, args, center_loss = 
         if (center_loss is not None) and (optimizer_centloss is not None):
             for param in center_loss.parameters():
                 param.grad.data *= (1./args.alpha)
-            optimizer_centloss.step()
+            optimizer_centerloss.step()
         optimizer.step()
 
         # measure elapsed time
@@ -416,7 +416,7 @@ def adjust_learning_rate(optimizer, epoch, args):
         param_group['lr'] = lr
 
 
-def adjust_learning_rate_centloss(optimizer, epoch, lr):
+def adjust_learning_rate_centerloss(optimizer, epoch, lr):
     """Sets the learning rate to the initial LR decayed by 10 every 15 epochs"""
     lr = lr * (0.1 ** (epoch // 15))
     for param_group in optimizer.param_groups:
