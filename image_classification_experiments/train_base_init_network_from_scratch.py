@@ -254,7 +254,7 @@ def main_worker(gpu, ngpus_per_node, args):
             train_sampler.set_epoch(epoch)
         adjust_learning_rate(optimizer, epoch, args)
         if args.center_loss:
-            adjust_learning_rate_centloss(optimizer_centerloss, epoch, args.lr_center_loss)
+            adjust_learning_rate_centerloss(optimizer_centerloss, epoch, args.lr_center_loss)
 
         # train for one epoch
         train(train_loader, model, criterion,  optimizer, epoch, args,center_loss = center_loss , optimizer_centerloss = optimizer_centerloss)
@@ -341,9 +341,9 @@ def train(train_loader, model, criterion, optimizer, epoch, args, center_loss = 
                 data_time=data_time, loss=losses, top1=top1, top5=top5))
 
     ### track loss and accuracy in neptune.ai
-    run['train_loss'] = losses.avg
-    run['train_acc1'] = top1.avg
-    run['train_acc5'] = top5.avg
+    run['train_loss'].log(losses.avg)
+    run['train_acc1'].log(top1.avg)
+    run['train_acc5'].log(top5.avg)
 
 
 def validate(val_loader, model, criterion, args, center_loss = None):
@@ -392,9 +392,9 @@ def validate(val_loader, model, criterion, args, center_loss = None):
               .format(top1=top1, top5=top5))
 
     ### track loss and accuracy in neptune.ai
-    run['val_loss'] = losses.avg
-    run['val_acc1'] = top1.avg
-    run['val_acc5'] = top5.avg
+    run['val_loss'].log(losses.avg)
+    run['val_acc1'].log(top1.avg)
+    run['val_acc5'].log(top5.avg)
 
 
     return top1.avg
