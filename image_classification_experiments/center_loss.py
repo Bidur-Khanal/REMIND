@@ -29,11 +29,11 @@ class CenterLoss(nn.Module):
             labels: ground truth labels with shape (batch_size).
         """
 
-        center = self.centers[labels]
+        '''center = self.centers[labels]
         dist = (x-center).pow(2).sum(dim=-1)
         loss = torch.clamp(dist, min=1e-12, max=1e+12).mean(dim=-1)
 
-        return loss
+        return loss'''
 
         
         batch_size = x.size(0)

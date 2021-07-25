@@ -17,6 +17,7 @@ import torchvision.datasets as datasets
 from resnet_models import *
 import time
 from center_loss import CenterLoss
+import neptune.new as neptune
 
 parser = argparse.ArgumentParser(description='PyTorch ImageNet Training')
 parser.add_argument('--data', metavar='DIR', help='path to dataset')
@@ -41,6 +42,8 @@ parser.add_argument('-b', '--batch_size', default=256, type=int,
                          'using Data Parallel or Distributed Data Parallel')
 parser.add_argument('--lr', '--learning-rate', default=0.1, type=float,
                     metavar='LR', help='initial learning rate', dest='lr')
+parser.add_argument('--lr_center_loss', '--learning-rate-center-loss', default=0.5, type=float,
+                    metavar='LRC', help='initial learning rate for center loss', dest='lr_center_loss')
 parser.add_argument('--momentum', default=0.9, type=float, metavar='M',
                     help='momentum')
 parser.add_argument('--wd', '--weight-decay', default=1e-4, type=float,
@@ -71,13 +74,17 @@ parser.add_argument('--multiprocessing-distributed', action='store_true',
                          'multi node data parallel training')
                         
 best_acc1 = 0
-
+run = neptune.init(project='bidur/CenterLoss',
+                   api_token='eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiIxM2NkY2I5MC01OGUzLTQzZWEtODYzYi01YTZiYmFjZmM4NmIifQ==') # your credentials
 
 
 def main():
     args = parser.parse_args()
-    args.gpu = None
+    if args.gpu == -1:
+        args.gpu = None
     print(vars(args))
+    run["parameters"] = {"base_max_class": args.base_max_class,"optimizer":"SGD","momentum":args.momentum,"seed": args.seed,"epochs":args.epochs,
+    "multiprocessing-distributed":args.multiprocessing_distributed,"model-learning-rate": args.lr,"center-loss-learning-rate":args.lr_center_loss,"center-loss":args.center_loss,"alpa":args.alpha}
     if not os.path.exists(args.save_dir):
         os.makedirs(args.save_dir)
 
@@ -97,7 +104,6 @@ def main():
 
     if args.dist_url == "env://" and args.world_size == -1:
         args.world_size = int(os.environ["WORLD_SIZE"])
-       
 
     args.distributed = args.world_size > 1 or args.multiprocessing_distributed
 
@@ -117,7 +123,7 @@ def main():
 def main_worker(gpu, ngpus_per_node, args):
     global best_acc1
     args.gpu = gpu
-    lr = 0.5  ##learning-rate used for the center loss
+    
     if args.gpu is not None:
         print("Use GPU: {} for training".format(args.gpu))
 
@@ -171,14 +177,14 @@ def main_worker(gpu, ngpus_per_node, args):
                                     momentum=args.momentum,
                                     weight_decay=args.weight_decay)
 
-        optimizer_centloss = torch.optim.SGD(center_loss.parameters(), lr=lr)
+        optimizer_centerloss = torch.optim.SGD(center_loss.parameters(), lr=args.lr_center_loss)
 
     else:
         center_loss = None
         optimizer = torch.optim.SGD(model.parameters(), args.lr,
                                     momentum=args.momentum,
                                     weight_decay=args.weight_decay)
-        optimizer_centloss = None
+        optimizer_centerloss = None
 
     
     # optionally resume from a checkpoint
@@ -248,10 +254,10 @@ def main_worker(gpu, ngpus_per_node, args):
             train_sampler.set_epoch(epoch)
         adjust_learning_rate(optimizer, epoch, args)
         if args.center_loss:
-            adjust_learning_rate_centloss(optimizer_centloss, epoch, lr)
+            adjust_learning_rate_centloss(optimizer_centerloss, epoch, args.lr_center_loss)
 
         # train for one epoch
-        train(train_loader, model, criterion,  optimizer, epoch, args,center_loss = center_loss , optimizer_centloss = optimizer_centloss)
+        train(train_loader, model, criterion,  optimizer, epoch, args,center_loss = center_loss , optimizer_centerloss = optimizer_centerloss)
 
         # evaluate on validation set
         acc1 = validate(val_loader, model, criterion, args, center_loss = center_loss)
@@ -275,7 +281,7 @@ def main_worker(gpu, ngpus_per_node, args):
                f='./' + ckpt_path + '/{}'.format(args.ckpt_file))
 
 
-def train(train_loader, model, criterion, optimizer, epoch, args, center_loss = None, optimizer_centloss = None):
+def train(train_loader, model, criterion, optimizer, epoch, args, center_loss = None, optimizer_centerloss = None):
     batch_time = AverageMeter()
     data_time = AverageMeter()
     losses = AverageMeter()
@@ -303,7 +309,7 @@ def train(train_loader, model, criterion, optimizer, epoch, args, center_loss = 
             output,ft= model(input)
             loss = criterion(output, target)
 
-
+        
         # measure accuracy and record loss
         acc1, acc5 = accuracy(output, target, topk=(1, 5))
         losses.update(loss.item(), input.size(0))
@@ -312,10 +318,10 @@ def train(train_loader, model, criterion, optimizer, epoch, args, center_loss = 
 
         # compute gradient and do SGD step
         optimizer.zero_grad()
-        if optimizer_centloss is not None:
-            optimizer_centloss.zero_grad()
+        if optimizer_centerloss is not None:
+            optimizer_centerloss.zero_grad()
         loss.backward()
-        if (center_loss is not None) and (optimizer_centloss is not None):
+        if (center_loss is not None) and (optimizer_centerloss is not None):
             for param in center_loss.parameters():
                 param.grad.data *= (1./args.alpha)
             optimizer_centerloss.step()
@@ -324,7 +330,6 @@ def train(train_loader, model, criterion, optimizer, epoch, args, center_loss = 
         # measure elapsed time
         batch_time.update(time.time() - end)
         end = time.time()
-
         if i % args.print_freq == 0:
             print('Epoch: [{0}][{1}/{2}]\t'
                   'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
@@ -334,6 +339,11 @@ def train(train_loader, model, criterion, optimizer, epoch, args, center_loss = 
                   'Acc@5 {top5.val:.3f} ({top5.avg:.3f})'.format(
                 epoch, i, len(train_loader), batch_time=batch_time,
                 data_time=data_time, loss=losses, top1=top1, top5=top5))
+
+    ### track loss and accuracy in neptune.ai
+    run['train_loss'] = losses.avg
+    run['train_acc1'] = top1.avg
+    run['train_acc5'] = top5.avg
 
 
 def validate(val_loader, model, criterion, args, center_loss = None):
@@ -380,6 +390,12 @@ def validate(val_loader, model, criterion, args, center_loss = None):
 
         print(' * Acc@1 {top1.avg:.3f} Acc@5 {top5.avg:.3f}'
               .format(top1=top1, top5=top5))
+
+    ### track loss and accuracy in neptune.ai
+    run['val_loss'] = losses.avg
+    run['val_acc1'] = top1.avg
+    run['val_acc5'] = top5.avg
+
 
     return top1.avg
 
